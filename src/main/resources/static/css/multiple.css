@@ -1,0 +1,12 @@
+.dummyImage {
+  height: 240px;
+  width: 240px;
+  margin-top: 24px;
+  padding: 0px;
+  background-color: red;
+}
+
+.row {
+  padding: 0;
+  margin: 0;
+}

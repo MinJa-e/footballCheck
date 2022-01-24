@@ -1,0 +1,30 @@
+#header {
+  height: 7vh;
+  background: #2a6d5b;
+}
+
+#content {
+  height: 93vh;
+  background: #f1e7dd;
+}
+
+#container {
+  margin: auto;
+  min-width: 1080px;
+  max-width: 1080px;
+}
+
+#boardCategory {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+#boardMain {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+#boardPagination {
+  margin-top: 32px;
+  margin-bottom: 0px;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+</head>
+
+<main layout:fragment="content">
+    <div id="container">
+
+        <div id="mainImageContainer" class="row d-flex gy-4 justify-content-between">
+
+            <div class="dummyImage"></div>
+            <div class="dummyImage"></div>
+            <div class="dummyImage"></div>
+            <div class="dummyImage"></div>
+            <div class="dummyImage"></div>
+            <div class="dummyImage"></div>
+            <div class="dummyImage"></div>
+            <div class="dummyImage"></div>
+
+<!--            <div class="col-auto">-->
+<!--                <div class="dummyImage"></div>-->
+<!--            </div>-->
+
+<!--            <div class="col-auto">-->
+<!--                <div class="dummyImage"></div>-->
+<!--            </div>-->
+
+<!--            <div class="col-auto">-->
+<!--                <div class="dummyImage"></div>-->
+<!--            </div>-->
+
+<!--            <div class="col-auto">-->
+<!--                <div class="dummyImage"></div>-->
+<!--            </div>-->
+
+<!--            <div class="col-auto">-->
+<!--                <div class="dummyImage"></div>-->
+<!--            </div>-->
+
+<!--            <div class="col-auto">-->
+<!--                <div class="dummyImage"></div>-->
+<!--            </div>-->
+
+<!--            <div class="col-auto">-->
+<!--                <div class="dummyImage"></div>-->
+<!--            </div>-->
+
+<!--            <div class="col-auto">-->
+<!--                <div class="dummyImage"></div>-->
+<!--            </div>-->
+
+        </div><!--이미지 끝-->
+
+        <div id="boardCategory">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">All</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">공지</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">일정</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">결과</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">이슈</a>
+                </li>
+    <!--            <li class="nav-item">-->
+    <!--                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+    <!--            </li>-->
+            </ul>
+        </div>
+
+        <table id="boardMain" style="width: 100%;text-align:center;"><!--6,?,9,7,5,4.5 rem-->
+            <thead>
+                <tr>
+                    <th style="width:6rem;">번호</th>
+                    <th>글제목</th>
+                    <th style="width:9rem;">작성자</th>
+                    <th style="width:7rem;">날짜</th>
+                    <th style="width:5rem;">조회수</th>
+                    <th style="width:4.5rem;">추천수</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td style="text-align:left;">축구체크 제목 테스트</td>
+                    <td>이민재</td>
+                    <td>2022-02-22</td>
+                    <td>222</td>
+                    <td>22</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="row justify-content-between">
+
+            <form class="col">
+                <input class="" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-sm btn-outline-success" type="submit">Search</button>
+                <select class="form-select-sm" aria-label=".form-select-sm example">
+                    <option value="1" selected>제목+내용</option>
+                    <option value="2">제목</option>
+                    <option value="3">내용</option>
+                    <option value="3">글쓴이</option>
+                </select>
+            </form>
+
+        <button type="button" class="btn btn-outline-primary btn-sm col-auto">인기글</button>
+            
+        </div>
+
+        <div id="boardPagination" class="row">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">이전</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">다음</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</main>
+
+</html>
