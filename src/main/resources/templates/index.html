@@ -80,6 +80,7 @@
             <thead>
                 <tr>
                     <th style="width:6rem;">번호</th>
+                    <th style="width:4rem;">카테고리</th>
                     <th>글제목</th>
                     <th style="width:9rem;">작성자</th>
                     <th style="width:7rem;">날짜</th>
@@ -90,7 +91,8 @@
             <tbody>
                 <tr>
                     <td>1</td>
-                    <td style="text-align:left;">축구체크 제목 테스트</td>
+                    <td>공지</td>
+                    <td style="padding-left: 1.5rem;text-align:left;">축구체크 제목 테스트</td>
                     <td>이민재</td>
                     <td>2022-02-22</td>
                     <td>222</td>
@@ -101,10 +103,13 @@
 
         <div class="row justify-content-between">
 
-            <form class="col">
-                <input class="" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-sm btn-outline-success" type="submit">Search</button>
-                <select class="form-select-sm" aria-label=".form-select-sm example">
+            <form class="col font-size-6">
+                <input class="" style="outline: -webkit-focus-ring-color auto 0px;background: none;border: none;vertical-align: middle;border-bottom: 1px solid hsl(30deg 100% 45%);"
+                type="search" aria-label="Search">
+                <button class="btn btn-sm btn-secondary" type="submit">검색</button>
+                <select class="form-select-sm " style="vertical-align: middle;
+    background: hsl(30deg 42% 91% / 0%);
+    border: 1px solid hsl(0deg 0% 0% / 30%);" aria-label=".form-select-sm example">
                     <option value="1" selected>제목+내용</option>
                     <option value="2">제목</option>
                     <option value="3">내용</option>
@@ -112,7 +117,7 @@
                 </select>
             </form>
 
-        <button type="button" class="btn btn-outline-primary btn-sm col-auto">인기글</button>
+        <button type="button" class="btn btn-secondary btn-sm col-auto">인기글</button>
             
         </div>
 
@@ -120,7 +125,7 @@
             <nav aria-label="Page navigation example">
                 <ul class="pagination justify-content-center">
                     <li class="page-item"><a class="page-link" href="#">이전</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                     <li class="page-item"><a class="page-link" href="#">다음</a></li>

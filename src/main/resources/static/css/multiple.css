@@ -10,3 +10,56 @@
   padding: 0;
   margin: 0;
 }
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: hsl(0deg 0% 0% / 50%);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+}
+
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: #495057;
+  background-color: hsl(30deg 100% 82%);
+  font-weight: bold;
+  border: none;
+  border-color: hsl(0deg 0% 100% / 0%);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: hsl(0deg 0% 0%);
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  color: hsl(0deg 0% 0% / 50%);
+  text-decoration: none;
+  background-color: hsl(0deg 0% 100% / 0%);
+  border: 1px solid hsl(0deg 0% 100% / 0%);
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.page-link:hover {
+  z-index: 2;
+  color: #000000;
+  background-color: hsl(0deg 0% 100% / 50%);
+  border-color: hsl(0deg 0% 0% / 35%);
+}
+
+.form-select-sm {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0rem;
+  font-size: 0.875rem;
+}
+.page-item.active .page-link {
+  border: 1px solid hsl(0deg 0% 0% / 50%);
+  background: hsl(0deg 0% 100% / 55%);
+  color: black;
+}
