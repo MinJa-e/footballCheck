@@ -2,8 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
-	// 외부 배포시 war 키기
-//	id 'war' 
+	id 'war'
 }
 
 group = 'com'
@@ -29,7 +28,7 @@ dependencies {
 //	runtimeOnly 'mysql:mysql-connector-java:5.1.49'
 	annotationProcessor 'org.projectlombok:lombok'
 
-	//외부에 배포할 떈
+	//외부에 배포할 떈 키기
 //	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
