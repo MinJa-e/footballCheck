@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+
+    <link th:href="@{/css/write/class.css}" rel="stylesheet">
+
+<!-- ck에디터 -->
+<!-- https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/installation.html -->
+<!-- https://cdn.ckeditor.com/#ckeditor5 -->
+<!--    이미지업로드구현-->
+<!--    https://jjong-factory.tistory.com/55-->
+       <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
+<!--    <script th:src="@{/js/ckeditor-full.js}"></script>-->
+<!--    <script th:src="@{/js/ckeditor.js}"></script>-->
+    <script th:src="@{/js/ko.js}"></script>
+
+</head>
+
+<main layout:fragment="content">
+    <div id="container">
+
+        <div id="wirteContainer" style="width:680px;margin:auto;">
+
+            <div class="row">
+                <select class="col-auto p-0" aria-label="Default select example">
+                    <option selected>카테고리</option>
+                    <option value="1">공지</option>
+                    <option value="2">일정</option>
+                    <option value="3">결과</option>
+                    <option value="4">이슈</option>
+                </select>
+                <input class="col w-100" type="text" placeholder="제목"><br>
+            </div>
+
+        <div id="writeContent"></div>
+        <script>
+        ClassicEditor
+            .create( document.querySelector( '#writeContent' ), {
+                language: 'ko' //언어설정
+            })
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+    </script>
+
+
+            <span>대표 이미지 : </span><input type="file">
+            <div class="row justify-content-end">
+                <button type="button" class="btn btn-sm btn-secondary col-auto">등록</button>
+            </div>
+                
+<!--        <table id="boardMain" style="width: 100%;text-align:center;">&lt;!&ndash;6,?,9,7,5,4.5 rem&ndash;&gt;-->
+<!--            <thead>-->
+<!--                <tr>-->
+<!--                    <th style="width:6rem;">번호</th>-->
+<!--                    <th style="width:4rem;">카테고리</th>-->
+<!--                    <th>글제목</th>-->
+<!--                    <th style="width:9rem;">작성자</th>-->
+<!--                    <th style="width:7rem;">날짜</th>-->
+<!--                    <th style="width:5rem;">조회수</th>-->
+<!--                    <th style="width:4.5rem;">추천수</th>-->
+<!--                </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--                <tr>-->
+<!--                    <td>1</td>-->
+<!--                    <td>공지</td>-->
+<!--                    <td style="padding-left: 1.5rem;text-align:left;">축구체크 제목 테스트</td>-->
+<!--                    <td>이민재</td>-->
+<!--                    <td>2022-02-22</td>-->
+<!--                    <td>222</td>-->
+<!--                    <td>22</td>-->
+<!--                </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->
+        </div>
+
+    </div>
+</main>
+
+</html>
