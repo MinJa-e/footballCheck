@@ -25,14 +25,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-//	runtimeOnly 'mysql:mysql-connector-java:5.1.49'
+	runtimeOnly 'mysql:mysql-connector-java:5.1.49'
 	annotationProcessor 'org.projectlombok:lombok'
 
 	//외부에 배포할 떈 키기
 //	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-//	implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0"
+	implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0"
 }
 
 tasks.named('test') {

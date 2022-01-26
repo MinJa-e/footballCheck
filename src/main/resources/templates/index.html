@@ -52,6 +52,9 @@
                     <a class="nav-link" href="#">결과</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#">밤사이결과</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#">이슈</a>
                 </li>
     <!--            <li class="nav-item">-->
@@ -73,14 +76,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>공지</td>
-                    <td style="padding-left: 1.5rem;text-align:left;">축구체크 제목 테스트</td>
-                    <td>이민재</td>
-                    <td>2022-02-22</td>
-                    <td>222</td>
-                    <td>22</td>
+                <tr th:each="main: ${list}">
+                    <td th:text="${main.no}">1</td>
+                    <td th:text="${main.category}">공지</td>
+                    <td th:text="${main.title}" style="padding-left: 1.5rem;text-align:left;">축구체크 제목 테스트</td>
+                    <td th:text="${main.writer}">이민재</td>
+                    <td th:text="${#temporals.format(main.date, 'yyyy-MM-dd')}">2022-02-22</td>
+<!--                    <td th:text="${#temporals.format(main.date, 'yyyy-MM-dd HH:mm')}">2022-02-22</td>-->
+                    <td th:text="${main.view}">222</td>
+                    <td th:text="${main.good}">22</td>
                 </tr>
             </tbody>
         </table>
