@@ -11,7 +11,7 @@ public class Criteria {
 
     public Criteria() {
         this.page = 1;
-        this.perPageNum = 10;// 한 페이지에 노출할 글 수
+        this.perPageNum = 20;// 한 페이지에 노출할 글 수
     }
 
     public int getPage() {

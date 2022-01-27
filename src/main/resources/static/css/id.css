@@ -4,7 +4,7 @@
 }
 
 #content {
-  height: 93vh;
+  min-height: 93vh;
   background: #f1e7dd;
 }
 
@@ -12,6 +12,17 @@
   margin: auto;
   min-width: 1080px;
   max-width: 1080px;
+}
+
+#contentContainer {
+  margin: auto;
+  /*min-width: 1080px;*/
+  max-width: 800px;
+}
+
+#writeContainer {
+    width:1080px;
+    margin:auto;
 }
 
 #boardCategory {

@@ -16,11 +16,13 @@ public interface MainMapper {
     List<MainDTO> getList(Criteria criteria);
 
     int countList();
-//
-//    MainDTO get(int talkNum);
-//
-//    void update(MainDTO MainDTO);
-//
-//    void delete(int talkNum);
+
+    MainDTO getContent(int main_no);
+
+    void updateViewCnt(int main_no);
+
+    void update(MainDTO MainDTO);
+
+    void delete(int talkNum);
 
 }

@@ -10,8 +10,17 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
 
+import javax.servlet.ServletContext;
+import java.io.File;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
@@ -34,10 +43,36 @@ public class controller {
         return "index";
     }
 
+    @GetMapping("/contents")
+    public String contents(@RequestParam(required = false) Integer main_no, Model model) {
+
+        if (main_no == null) {
+            return "index";
+        } else {
+            mainService.updateViewCnt(main_no);
+            MainDTO mainDTO = mainService.getContent(main_no);
+            model.addAttribute("main", mainDTO);
+            return "views/content";
+        }
+
+    }
+
     @GetMapping("/write")
     public String write() {
 
         return "views/write";
+    }
+
+    @GetMapping("/update")
+    public String update(@RequestParam(required = false) Integer main_no, Model model) {
+
+        if (main_no == null) {
+            return "index";
+        } else {
+            MainDTO mainDTO = mainService.getContent(main_no);
+            model.addAttribute("main", mainDTO);
+            return "views/update";
+        }
     }
 
 }

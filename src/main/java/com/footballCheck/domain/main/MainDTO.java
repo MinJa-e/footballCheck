@@ -7,14 +7,14 @@ import java.time.LocalDateTime;
 @Data
 public class MainDTO {
 
-    private int no;
-    private int category;
-    private String title;
-    private String content;
-    private String thumbnail;
-    private String writer;
-    private LocalDateTime date;
-    private int view;
-    private int good;
+    private int main_no;
+    private int main_category;
+    private String main_title;
+    private String main_content;
+    private String main_thumbnail;
+    private String main_writer;
+    private LocalDateTime main_date;
+    private int main_view;
+    private int main_like;
 
 }

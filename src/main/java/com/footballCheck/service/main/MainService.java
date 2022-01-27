@@ -13,11 +13,13 @@ public interface MainService {
     List<MainDTO> getList(Criteria criteria);
 
     int countList();
-//
-//    MainDTO get(int talkNum);
-//
-//    void update(MainDTO MainDTO);
-//
-//    void delete(int talkNum);
+
+    MainDTO getContent(int main_no);
+
+    void updateViewCnt(int main_no);
+
+    void update(MainDTO mainDTO);
+
+    void delete(int talkNum);
 
 }

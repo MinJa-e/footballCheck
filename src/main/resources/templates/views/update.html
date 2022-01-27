@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+
+    <link th:href="@{/css/write/class.css}" rel="stylesheet">
+    <link th:href="@{/css/write/id.css}" rel="stylesheet">
+
+    <!-- ck에디터 -->
+    <script src="//cdn.ckeditor.com/4.17.1/full-all/ckeditor.js"></script>
+    <!--    이미지업로드구현 https://velog.io/@joon1106/CKeditor4-%EC%82%AC%EC%9A%A9%EC%82%AC%EC%A7%84-%EC%97%85%EB%A1%9C%EB%93%9C-->
+
+
+</head>
+
+<main layout:fragment="content">
+    <div id="container">
+
+        <div id="writeContainer">
+
+            <form th:action="@{/api/main(main_no=${main.main_no})}" method="post">
+                <input type="hidden" name="_method" value="PUT"/>
+
+            <div class="row">
+                <select name="main_category" id="main_category" class="col-auto p-0" aria-label="Default select example">
+                    <option>카테고리</option>
+                    <option th:selected="${main.main_category}=='1'" value="1">공지</option>
+                    <option th:selected="${main.main_category}=='2'" value="2">일정</option>
+                    <option th:selected="${main.main_category}=='3'" value="3">결과</option>
+                    <option th:selected="${main.main_category}=='4'" value="4">밤사이결과</option>
+                    <option th:selected="${main.main_category}=='5'" value="5">이슈</option>
+                </select>
+                <input name="main_title" id="main_title" class="col w-100" type="text" th:value="${main.main_title}" placeholder="제목" required><br>
+            </div>
+
+            <textarea name="main_content" id="main_content" th:utext="${main.main_content}"></textarea>
+                <script>
+                        CKEDITOR.replace( 'main_content',{
+		filebrowserUploadUrl: '/api/ckeUpload'
+	} );
+                </script>
+<!--        <script>-->
+<!--        ClassicEditor-->
+<!--            .create( document.querySelector( '#writeContent' ), {-->
+<!--                simpleUpload:-->
+<!--                {-->
+<!--                    uploadUrl: "/upload/image",-->
+<!--                    withCredentials: true,-->
+<!--                },-->
+<!--                language: 'ko' //언어설정-->
+<!--            })-->
+<!--                                .then( newEditor => {-->
+<!--                                        console.log( newEditor );-->
+<!--                                        editor = newEditor;-->
+<!--                                } )-->
+<!--                                .catch( error => {-->
+<!--                                        console.error( error );-->
+<!--                                } );-->
+<!--    </script>-->
+
+
+            <span>썸네일 이미지 : </span><input name="main_thumbnail" id="main_thumbnail" type="file">
+            <input type="hidden" name="main_writer" id="main_writer" value="">
+            <div class="row justify-content-between">
+                <span class="font-size-6 text-secondary col-auto p-0">* 수정 시 썸네일 이미지는 새로 업로드 해주셔야 합니다.(추후 편의성 업데이트 예정)</span>
+                <input type="submit" class="btn btn-sm btn-secondary col-auto" value="등록"/>
+            </div>
+
+        </form>
+
+        </div>
+
+
+    </div>
+</main>
+
+</html>

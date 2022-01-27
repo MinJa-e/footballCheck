@@ -23,11 +23,13 @@ public class ApiMainController {
 //    public MainDTO get(@PathVariable int talkNum) {
 //        return talkService.get(talkNum);
 //    }
-//
-//    @PutMapping("/{talkNum}")
-//    public void update(MainDTO MainDTO) {
-//        talkService.update(MainDTO);
-//    }
+
+    @PutMapping("/{main_no}")
+    public String mainUpdate(@PathVariable Integer main_no, @RequestBody MainDTO mainDTO){
+        mainDTO.setMain_no(main_no);
+        mainService.update(mainDTO);
+        return "redirect:/";
+    }
 //
 //    @GetMapping("/delete/{talkNum}")
 //    public String delete(@PathVariable int talkNum) {

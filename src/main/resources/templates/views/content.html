@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+
+</head>
+
+<main layout:fragment="content">
+    <div id="contentContainer">
+
+        <div class="row justify-content-between padding-top-10 padding-bottom-05 border-bottom-gray">
+            <!--        <span class=""  th:utext="${main.thumbnail}">썸네일</span>-->
+            <!--                <span class="border-bottom"  th:utext="${main.category}">카테고리</span>-->
+            <h1 class="font-size-4 font-weight-bold col-auto" th:utext="${main.main_title}">제목</h1>
+            <span class="col-auto font-size-6 text-secondary"  th:utext="${#temporals.format(main.main_date, 'yyyy.MM.dd')}" style="align-self: end;">날짜</span>
+        </div>
+
+        <div class="row justify-content-between font-size-6 padding-top-05 padding-bottom-05 border-bottom-gray">
+            <span class="col-auto"  th:utext="${main.main_writer}">작성자</span>
+            <div class="row col-auto text-secondary">
+                <div class="col-auto">
+                    <span>조회수 </span><span class="border-bottom"  th:utext="${main.main_view}">조회수</span>
+                </div>
+                <div class="col-auto">
+                    <span>추천수 </span><span class="border-bottom"  th:utext="${main.main_like}">추천수</span>
+                </div>
+                <div class="col-auto">
+                    <span class="border-bottom">댓글수 0</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="padding-top-05 padding-bottom-10 border-bottom-gray"  th:utext="${main.main_content}">내용</div>
+
+        <div class="row justify-content-end padding-top-05 padding-bottom-05 border-bottom-gray">
+            <div>댓글 추후 구현</div>
+        </div>
+
+        <div class="row justify-content-between padding-top-05 padding-bottom-05">
+            <div class="col-auto">
+                <a class="btn btn-secondary col-auto btn-sm me-1" th:href="@{/update(main_no=${main.main_no})}" role="button">글 수정</a>
+                <a class="btn btn-secondary col-auto btn-sm me-1" href="/" role="button">글 삭제</a>
+            </div>
+            <div class="col-auto">
+                <a class="btn btn-secondary col-auto btn-sm me-1" href="/" role="button">목록으로</a>
+                <a class="btn btn-secondary col-auto btn-sm me-1" href="/" role="button">이전 글</a>
+                <a class="btn btn-secondary col-auto btn-sm me-1" href="/" role="button">다음 글</a>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+</html>

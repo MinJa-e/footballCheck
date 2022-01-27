@@ -77,14 +77,14 @@
             </thead>
             <tbody>
                 <tr th:each="main: ${list}">
-                    <td th:text="${main.no}">1</td>
-                    <td th:text="${main.category}">공지</td>
-                    <td th:text="${main.title}" style="padding-left: 1.5rem;text-align:left;">축구체크 제목 테스트</td>
-                    <td th:text="${main.writer}">이민재</td>
-                    <td th:text="${#temporals.format(main.date, 'yyyy-MM-dd')}">2022-02-22</td>
+                    <td th:text="${main.main_no}">1</td>
+                    <td th:text="${main.main_category}">공지</td>
+                    <td style="padding-left: 1.5rem;text-align:left;"><a th:text="${main.main_title}" th:href="@{/contents(main_no=${main.main_no})}">축구체크 제목 테스트</a></td>
+                    <td th:text="${main.main_writer}">이민재</td>
+                    <td th:text="${#temporals.format(main.main_date, 'yyyy.MM.dd')}">2022-02-22</td>
 <!--                    <td th:text="${#temporals.format(main.date, 'yyyy-MM-dd HH:mm')}">2022-02-22</td>-->
-                    <td th:text="${main.view}">222</td>
-                    <td th:text="${main.good}">22</td>
+                    <td th:text="${main.main_view}">222</td>
+                    <td th:text="${main.main_like}">22</td>
                 </tr>
             </tbody>
         </table>
@@ -105,20 +105,35 @@
                 </select>
             </form>
 
+        <a class="btn btn-secondary col-auto btn-sm me-1" href="/write" role="button">글쓰기</a>
         <button type="button" class="btn btn-secondary btn-sm col-auto">인기글</button>
             
         </div>
 
         <div id="boardPagination" class="row">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="#">이전</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">다음</a></li>
+            <nav th:fragment="pagination" aria-label="...">
+                <ul th:with="start = ${pageMaker.startPage}, end = ${pageMaker.endPage}" class="pagination pagination-sm justify-content-center">
+                    <!--이전 페이지-->
+                    <li th:if="${pageMaker.isPrev() == true}" class="page-item">
+                        <a class="page-link" th:href="@{/?page={page}(page=${pageMaker.startPage-1 })}" aria-label="Previous">
+                            <span aria-hidden="true">이전</span>
+                        </a>
+                    </li>
+                    <!--페이지 반복문-->
+                    <li
+                            th:each="pageNum : ${#numbers.sequence(start, end)}"
+                            class="page-item" th:classappend="${pageNum == pageMaker.cri.page} ? 'active'">
+                        <a th:text="${pageNum}" class="page-link" th:href="@{/?page={page} (page = ${pageNum})}">1</a>
+                    </li>
+                    <!--다음 페이지>-->
+                    <li th:if="${pageMaker.isNext() == true && pageMaker.endPage > 0}" class="page-item">
+                        <a class="page-link" th:href="@{/?page={page}(page=${pageMaker.endPage+1 })}" aria-label="Next">
+                            <span aria-hidden="true">다음</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
+
         </div>
 
     </div>

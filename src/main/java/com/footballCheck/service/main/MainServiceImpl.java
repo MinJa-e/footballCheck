@@ -32,5 +32,25 @@ public class MainServiceImpl implements MainService {
         return mainMapper.countList();
     }
 
+    @Override
+    public MainDTO getContent(int main_no) {
+        return mainMapper.getContent(main_no);
+    }
+
+    @Override
+    public void updateViewCnt(int main_no) {
+        mainMapper.updateViewCnt(main_no);
+    }
+
+    @Override
+    public void update(MainDTO mainDTO) {
+        mainMapper.update(mainDTO);
+    }
+
+    @Override
+    public void delete(int main_no) {
+        mainMapper.delete(main_no);
+    }
+
 
 }
