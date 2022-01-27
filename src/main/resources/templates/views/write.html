@@ -35,14 +35,47 @@
             <textarea name="main_content" id="main_content"></textarea>
                 <script>
                         CKEDITOR.replace( 'main_content',{
-                            filebrowserUploadUrl: '/api/ckeUpload'
+                            filebrowserUploadUrl: '/api/ckeUpload',
+                            font_names: "굴림/Gulim;돋움/Dotum;바탕/Batang;궁서/Gungsuh;맑은 고딕/Malgun;Arial/arial;글꼴요청가능",
+                            fontSize_defaultLabel: '16px'
                         } );
                 </script>
 
+            <div class="row">
+                <span class="col-auto">메인 이미지 등록 : </span>
+                <select name="main_position" id="main_position" class="col-auto p-0" onchange="mainPositionChange()" aria-label="Default select example">
+                    <option value="0" selected>등록X</option>
+                    <option value="1">상단1</option>
+                    <option value="2">상단2</option>
+                    <option value="3">상단3</option>
+                    <option value="4">상단4</option>
+                    <option value="5">하단1</option>
+                    <option value="6">하단2</option>
+                    <option value="7">하단3</option>
+                    <option value="8">하단4</option>
+                </select>
+            </div>
+                <script>
+                    function mainPositionChange(){
+                        var writeThumbnailContainer = document.getElementById("writeThumbnailContainer"); // select element에서 선택된 option의 value가 저장된다. 
+                        var selectMainPosition = document.getElementById("main_position"); // select element에서 선택된 option의 value가 저장된다. 
+                        var selectMainPositionValue = selectMainPosition.options[selectMainPosition.selectedIndex].value; // select element에서 선택된 option의 text가 저장된다. 
+                        var selectMainPositionText = selectMainPosition.options[selectMainPosition.selectedIndex].text;
 
-            <span>썸네일 이미지 : </span><input name="main_thumbnail" id="main_thumbnail" type="file">
+                        if(selectMainPositionValue == 0){
+                            writeThumbnailContainer.style.display="none";
+                        }else if(selectMainPositionValue != 0){
+                            writeThumbnailContainer.style.display="block";
+                        }
+
+                    }
+                </script>
+            <div id="writeThumbnailContainer" style="display:none;">
+                <span>썸네일 이미지 : </span><input name="main_thumbnail" id="main_thumbnail" type="file">
+            </div>
             <input type="hidden" name="main_writer" id="main_writer" value="">
-            <div class="row justify-content-end">
+            <div class="row justify-content-between">
+                <span class="font-size-6 text-secondary col-auto p-0">* 수정 시 썸네일 이미지는 새로 업로드 해주셔야 합니다.(추후 편의성 업데이트 예정)</span>
                 <input type="submit" class="btn btn-sm btn-secondary col-auto" value="등록"/>
             </div>
 

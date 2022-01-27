@@ -66,8 +66,8 @@
         <table id="boardMain" style="width: 100%;text-align:center;"><!--6,?,9,7,5,4.5 rem-->
             <thead>
                 <tr>
-                    <th style="width:6rem;">번호</th>
-                    <th style="width:4rem;">카테고리</th>
+                    <th style="width:5.5rem;">번호</th>
+                    <th style="width:5rem;">카테고리</th>
                     <th>글제목</th>
                     <th style="width:9rem;">작성자</th>
                     <th style="width:7rem;">날짜</th>
@@ -78,7 +78,11 @@
             <tbody>
                 <tr th:each="main: ${list}">
                     <td th:text="${main.main_no}">1</td>
-                    <td th:text="${main.main_category}">공지</td>
+                    <td th:if="${main.main_category} == '1'" th:text="공지">공지</td>
+                    <td th:if="${main.main_category} == '2'" th:text="일정">공지</td>
+                    <td th:if="${main.main_category} == '3'" th:text="경기결과">공지</td>
+                    <td th:if="${main.main_category} == '4'" th:text="밤사이결과">공지</td>
+                    <td th:if="${main.main_category} == '5'" th:text="이슈">공지</td>
                     <td style="padding-left: 1.5rem;text-align:left;"><a th:text="${main.main_title}" th:href="@{/contents(main_no=${main.main_no})}">축구체크 제목 테스트</a></td>
                     <td th:text="${main.main_writer}">이민재</td>
                     <td th:text="${#temporals.format(main.main_date, 'yyyy.MM.dd')}">2022-02-22</td>

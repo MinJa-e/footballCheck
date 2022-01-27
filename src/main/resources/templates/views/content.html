@@ -40,7 +40,40 @@
         <div class="row justify-content-between padding-top-05 padding-bottom-05">
             <div class="col-auto">
                 <a class="btn btn-secondary col-auto btn-sm me-1" th:href="@{/update(main_no=${main.main_no})}" role="button">글 수정</a>
-                <a class="btn btn-secondary col-auto btn-sm me-1" href="/" role="button">글 삭제</a>
+                <button class="btn btn-secondary col-auto btn-sm me-1" onclick="mainContentDelete()" role="button">글 삭제</button>
+                <script>
+                        function mainContentDelete() {
+
+                            var url = new URL(location.href);
+                            var main_no = url.searchParams.get("main_no");
+
+                            if (!confirm("정말 삭제하시겠습니까?1")) {
+                                
+                            } else {
+                                
+                                const url = `http://localhost:8080/api/main/${main_no}`;
+                                    const option = {
+                                        method: 'DELETE'
+                                    };
+
+                                    fetch(url, option)
+                                        .then((response) => {
+                                            return response.json();
+                                        })
+                                        .then((data) => {
+                                            console.log(data);
+                                            location.href="http://localhost:8080/";
+                                        })
+                                        .catch((error) => {
+                                            console.log(error);
+                                        });
+
+                            }
+
+                            
+
+                        }
+                </script>
             </div>
             <div class="col-auto">
                 <a class="btn btn-secondary col-auto btn-sm me-1" href="/" role="button">목록으로</a>

@@ -19,8 +19,7 @@
 
         <div id="writeContainer">
 
-            <form th:action="@{/api/main(main_no=${main.main_no})}" method="post">
-                <input type="hidden" name="_method" value="PUT"/>
+            <form th:action="@{'/api/main/'+${main.main_no}}" th:method="put">
 
             <div class="row">
                 <select name="main_category" id="main_category" class="col-auto p-0" aria-label="Default select example">
@@ -37,7 +36,8 @@
             <textarea name="main_content" id="main_content" th:utext="${main.main_content}"></textarea>
                 <script>
                         CKEDITOR.replace( 'main_content',{
-		filebrowserUploadUrl: '/api/ckeUpload'
+		filebrowserUploadUrl: '/api/ckeUpload',
+                            font_names: "굴림/Gulim;돋움/Dotum;바탕/Batang;궁서/Gungsuh;맑은 고딕/Malgun;Arial/arial;글꼴요청가능"
 	} );
                 </script>
 <!--        <script>-->

@@ -18,7 +18,8 @@
             main_writer,
             main_date,
             main_view,
-            main_like
+            main_like,
+            main_position
         FROM
             fcmain
         ORDER BY
@@ -47,7 +48,8 @@
         main_writer,
         main_date,
         main_view,
-        main_like
+        main_like,
+        main_position
         FROM    fcmain
         WHERE   main_no = #{main_no}
     </select>
@@ -57,9 +59,16 @@
     </update>
 
     <update id="update" parameterType="com.footballCheck.domain.main.MainDTO">
-        UPDATE fcmain (main_category,main_title,main_content,main_thumbnail)
-        SET ( #{main_category},#{main_title},#{main_content},#{main_thumbnail} )
-        WHERE   main_no = #{main_no}
+        UPDATE
+            fcmain
+        SET
+            main_category   = IFNULL(   #{main_category},       main_category       ),
+            main_title   = IFNULL(   #{main_title},       main_title       ),
+            main_content   = IFNULL(   #{main_content},       main_content       ),
+            main_thumbnail   = IFNULL(   #{main_thumbnail},       main_thumbnail       ),
+            main_position   = IFNULL(   #{main_position},       main_position       )
+        WHERE
+            main_no = #{main_no}
     </update>
 
     <delete id="delete" parameterType="int">

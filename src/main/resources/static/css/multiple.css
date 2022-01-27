@@ -25,7 +25,7 @@
 }
 
 .nav-tabs {
-    border-bottom: 2px solid hsl(0deg 0% 0% / 15%);
+  border-bottom: 2px solid hsl(0deg 0% 0% / 15%);
 }
 
 .nav-tabs .nav-link.active,
@@ -72,7 +72,20 @@
   color: black;
 }
 
-#contentContainer > .row > span, #contentContainer > .row > h1 {
-    margin : 0;
-    padding : 0;
+#contentContainer > .row > span,
+#contentContainer > .row > h1 {
+  margin: 0;
+  padding: 0;
+}
+
+tr {
+  line-height: 2.125rem;
+}
+
+thead > tr {
+  border-bottom: 2px solid hsl(0deg 0% 0% / 30%);
+}
+
+tbody > tr {
+  border-bottom: 1px solid hsl(0deg 0% 0% / 15%);
 }

@@ -25,16 +25,16 @@ public class ApiMainController {
 //    }
 
     @PutMapping("/{main_no}")
-    public String mainUpdate(@PathVariable Integer main_no, @RequestBody MainDTO mainDTO){
+    public String mainUpdate(@PathVariable Integer main_no, MainDTO mainDTO){
         mainDTO.setMain_no(main_no);
         mainService.update(mainDTO);
         return "redirect:/";
     }
-//
-//    @GetMapping("/delete/{talkNum}")
-//    public String delete(@PathVariable int talkNum) {
-//        talkService.delete(talkNum);
-//        return "redirect:/talk";
-//    }
+
+    @DeleteMapping("/{main_no}")
+    public String mainDelete(@PathVariable Integer main_no) {
+        mainService.delete(main_no);
+        return "redirect:/";
+    }
 
 }

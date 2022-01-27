@@ -8,8 +8,10 @@ spring:
     multipart:
       maxFileSize: 50MB
       maxRequestSize: 50MB
-
-
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
 
 mybatis:
   mapper-locations: classpath:/mapper/**.xml
