@@ -37,4 +37,22 @@ public class ApiMainController {
         return "redirect:/";
     }
 
+    @GetMapping("/getPrev/{main_no}")//이전글 로직
+    public String getPrev(@PathVariable Integer main_no) {
+        if(mainService.getPrev(main_no) != 0) {
+            return "redirect:/contents?main_no="+mainService.getPrev(main_no);
+        }else{
+            return null;
+        }
+    }
+
+    @GetMapping("/getNext/{main_no}")//이전글 로직
+    public String getNext(@PathVariable Integer main_no) {
+        if(mainService.getNext(main_no) != 0) {
+            return "redirect:/contents?main_no="+mainService.getNext(main_no);
+        }else{
+            return null;
+        }
+    }
+
 }

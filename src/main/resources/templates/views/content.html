@@ -77,8 +77,8 @@
             </div>
             <div class="col-auto">
                 <a class="btn btn-secondary col-auto btn-sm me-1" href="/" role="button">목록으로</a>
-                <a class="btn btn-secondary col-auto btn-sm me-1" href="/" role="button">이전 글</a>
-                <a class="btn btn-secondary col-auto btn-sm me-1" href="/" role="button">다음 글</a>
+                <a th:if="${main.main_no != first}" class="btn btn-secondary col-auto btn-sm me-1" th:href="@{|/api/main/getPrev/${main.main_no}|}" role="button">이전 글</a>
+                <a th:if="${main.main_no != last}" class="btn btn-secondary col-auto btn-sm me-1" th:href="@{|/api/main/getNext/${main.main_no}|}" role="button">다음 글</a>
             </div>
         </div>
 

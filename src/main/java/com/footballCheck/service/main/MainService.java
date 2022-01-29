@@ -16,6 +16,14 @@ public interface MainService {
 
     MainDTO getContent(int main_no);
 
+    int getPrev(int main_no);
+
+    int getNext(int main_no);
+
+    int getFirst();
+
+    int getLast();
+
     void updateViewCnt(int main_no);
 
     void update(MainDTO mainDTO);

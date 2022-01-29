@@ -10,16 +10,7 @@
     <select id="getList" parameterType="com.footballCheck.pagination.Criteria" resultType="com.footballCheck.domain.main.MainDTO">
         <![CDATA[
         SELECT
-            main_no,
-            main_category,
-            main_title,
-            main_content,
-            main_thumbnail,
-            main_writer,
-            main_date,
-            main_view,
-            main_like,
-            main_position
+            *
         FROM
             fcmain
         ORDER BY
@@ -40,18 +31,57 @@
 
     <select id="getContent" parameterType="int" resultType="com.footballCheck.domain.main.MainDTO">
         SELECT
-        main_no,
-        main_category,
-        main_title,
-        main_content,
-        main_thumbnail,
-        main_writer,
-        main_date,
-        main_view,
-        main_like,
-        main_position
+            *
         FROM    fcmain
         WHERE   main_no = #{main_no}
+    </select>
+
+    <select id="getPrev" resultType="Integer">
+        SELECT
+            main_no
+        FROM
+            fcmain
+        WHERE
+            <![CDATA[main_no < #{main_no}]]>
+        ORDER BY
+            main_no DESC
+        LIMIT
+            1
+    </select>
+
+    <select id="getNext" resultType="Integer">
+        SELECT
+            main_no
+        FROM
+            fcmain
+        WHERE
+            <![CDATA[main_no > #{main_no}]]>
+        ORDER BY
+            main_no ASC
+        LIMIT
+            1
+    </select>
+
+    <select id="getFirst" resultType="Integer">
+        SELECT
+            main_no
+        FROM
+            fcmain
+        ORDER BY
+            main_no ASC
+        LIMIT
+            1
+    </select>
+
+    <select id="getLast" resultType="Integer">
+        SELECT
+            main_no
+        FROM
+            fcmain
+        ORDER BY
+            main_no DESC
+        LIMIT
+            1
     </select>
 
     <update id="updateViewCnt">

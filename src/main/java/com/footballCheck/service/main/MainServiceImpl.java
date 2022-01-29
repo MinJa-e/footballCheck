@@ -38,6 +38,26 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
+    public int getPrev(int main_no) {
+        return mainMapper.getPrev(main_no);
+    }
+
+    @Override
+    public int getNext(int main_no) {
+        return mainMapper.getNext(main_no);
+    }
+
+    @Override
+    public int getFirst() {
+        return mainMapper.getFirst();
+    }
+
+    @Override
+    public int getLast() {
+        return mainMapper.getLast();
+    }
+
+    @Override
     public void updateViewCnt(int main_no) {
         mainMapper.updateViewCnt(main_no);
     }
