@@ -7,17 +7,63 @@
         VALUES ( #{main_category}, #{main_title}, #{main_content}, #{main_thumbnail}, #{main_writer}, now() )
     </insert>
 
-    <select id="getList" parameterType="com.footballCheck.pagination.Criteria" resultType="com.footballCheck.domain.main.MainDTO">
+    <select id="getList" parameterType="hashmap" resultType="com.footballCheck.domain.main.MainDTO">
         <![CDATA[
         SELECT
             *
         FROM
             fcmain
+        ]]>
+        <if test="searchType != null or category != null">
+            <![CDATA[
+        WHERE
+        main_no > 0
+            ]]>
+        </if>
+        <choose>
+            <when test="searchType == 1">
+                AND
+                    (main_title LIKE CONCAT('%', #{searchKeyword}, '%')
+                OR
+                    main_content LIKE CONCAT('%', #{searchKeyword}, '%'))
+            </when>
+            <when test="searchType == 2">
+                AND
+                    main_title LIKE CONCAT('%', #{searchKeyword}, '%')
+            </when>
+            <when test="searchType == 3">
+                AND
+                    main_content LIKE CONCAT('%', #{searchKeyword}, '%')
+            </when>
+            <when test="searchType == 4">
+                AND
+                    main_writer LIKE CONCAT('%', #{searchKeyword}, '%')
+            </when>
+        </choose>
+        <choose>
+            <when test="category == 1">
+                AND
+                    main_category = 1
+            </when>
+            <when test="category == 2">
+                AND
+                    main_category = 2
+            </when>
+            <when test="category == 3">
+                AND
+                    main_category = 3
+            </when>
+            <when test="category == 4">
+                AND
+                    main_category = 4
+            </when>
+        </choose>
+        <![CDATA[
         ORDER BY
             main_no DESC
         LIMIT
-            #{pageStart}, #{perPageNum}
-    ]]>
+            #{Criteria.pageStart}, #{Criteria.perPageNum}
+        ]]>
     </select>
 
     <select id="countList" resultType="Integer">

@@ -11,6 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.ws.spi.http.HttpExchange;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -20,16 +23,37 @@ public class controller {
     private final MainService mainService;
 
     @GetMapping
-    public String index(Criteria criteria, Model model) {
+    public String index(Criteria criteria
+            , @RequestParam(value = "searchType", required = false) String searchType
+            , @RequestParam(value = "searchKeyword", required = false) String searchKeyword
+            , @RequestParam(value = "category", required = false) String category
+            , Model model
+            , HttpServletRequest request) {
 
         PageMaker pageMaker = new PageMaker();
         pageMaker.setCri(criteria);
         pageMaker.setTotalCount(mainService.countList());
 
-        List<MainDTO> List = mainService.getList(criteria);
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("Criteria", criteria);
+        map.put("searchType", searchType);
+        map.put("searchKeyword", searchKeyword);
+        map.put("category", category);
+        List<MainDTO> list = mainService.getList(map);
 
-        model.addAttribute("list", List);
+        String baseUri = request.getQueryString();
+        if(category != null){//해당문자열이없으면-1을리턴
+            String uriCategory = baseUri.substring((baseUri.lastIndexOf("&category")));
+            String deleteCategoryUri = baseUri.replace(uriCategory,"");
+            model.addAttribute("deleteCategoryUri", deleteCategoryUri);
+        }else {
+            model.addAttribute("deleteCategoryUri", baseUri);
+        }
+
+
+        model.addAttribute("list", list);
         model.addAttribute("pageMaker", pageMaker);
+        model.addAttribute("category", category);
 
         return "index";
     }

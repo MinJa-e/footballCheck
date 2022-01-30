@@ -17,5 +17,6 @@ public class MainDTO {
     private int main_view;
     private int main_like;
     private int main_position;
+    private int main_reserve;
 
 }

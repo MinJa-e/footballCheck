@@ -5,6 +5,7 @@ import com.footballCheck.domain.main.MainDTO;
 import com.footballCheck.pagination.Criteria;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -13,7 +14,7 @@ public interface MainMapper {
 
     void write(MainDTO mainDTO);
 
-    List<MainDTO> getList(Criteria criteria);
+    List<MainDTO> getList(HashMap<String, Object> map);
 
     int countList();
 

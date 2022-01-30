@@ -7,6 +7,7 @@ import com.footballCheck.pagination.Criteria;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -23,8 +24,9 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
-    public List<MainDTO> getList(Criteria criteria) {
-        return mainMapper.getList(criteria);
+    public List<MainDTO> getList(HashMap<String, Object> map) {
+
+        return mainMapper.getList(map);
     }
 
     @Override
