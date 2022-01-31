@@ -31,7 +31,7 @@ dependencies {
 	implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'//파일업로드만들때썼었음
 
 	//외부에 배포할 떈 키기
-//	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0"

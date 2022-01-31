@@ -44,25 +44,28 @@
                 <script>
                         function mainContentDelete() {
 
+                            var protocol = window.location.protocol;
+                            var baseUrl = window.location.host;
+                            var fullUrl = protocol + baseUrl;
                             var url = new URL(location.href);
                             var main_no = url.searchParams.get("main_no");
 
                             if (!confirm("정말 삭제하시겠습니까?1")) {
                                 
                             } else {
-                                
-                                const url = `http://localhost:8080/api/main/${main_no}`;
+                                    const url = `/api/main/${main_no}`;
                                     const option = {
                                         method: 'DELETE'
                                     };
 
                                     fetch(url, option)
                                         .then((response) => {
+                                            console.log("삭제확인용")
                                             return response.json();
                                         })
                                         .then((data) => {
                                             console.log(data);
-                                            location.href="http://localhost:8080/";
+                                            location.href="/";
                                         })
                                         .catch((error) => {
                                             console.log(error);

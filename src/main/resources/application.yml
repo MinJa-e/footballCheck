@@ -1,12 +1,16 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/portfolio?serverTimezone=Asia/Seoul&useSSL=false&characterEncoding=UTF-8
-    username: root
-    password: 1479
+    url: jdbc:mysql://localhost:3306/leeniesta?serverTimezone=Asia/Seoul&useSSL=false&characterEncoding=UTF-8
+#    url: jdbc:mysql://localhost:3306/portfolio?serverTimezone=Asia/Seoul&useSSL=false&characterEncoding=UTF-8
+    username: leeniesta
+    password: Dlalswo0!!
+#    username: root
+#    password: 1479
   servlet:
     multipart:
-      location: C:\Users\choigy\Desktop\afterProject\footballCheck\src\main\resources\static\img\upload
+      location: /home/hosting_users/leeniesta/tomcat/webapps/ROOT/WEB-INF/classes/static/img/upload
+#      location: C:\Users\choigy\Desktop\afterProject\footballCheck\src\main\resources\static\img\upload
       maxFileSize: 50MB
       maxRequestSize: 50MB
   mvc:

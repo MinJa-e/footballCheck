@@ -210,7 +210,7 @@
 
     <select id="getRecent_Thumbnail_top_first" resultType="com.footballCheck.domain.main.MainDTO">
         SELECT
-            main_thumbnail_top_first, main_no
+            *
         FROM
             fcmain
         where
@@ -219,6 +219,97 @@
             main_date DESC
         LIMIT
             1;
+    </select>
+
+    <select id="getRecent_Thumbnail_top_second" resultType="com.footballCheck.domain.main.MainDTO">
+        SELECT
+        *
+        FROM
+        fcmain
+        where
+        main_thumbnail_top_second is not null
+        ORDER BY
+        main_date DESC
+        LIMIT
+        1;
+    </select>
+
+    <select id="getRecent_Thumbnail_top_third" resultType="com.footballCheck.domain.main.MainDTO">
+        SELECT
+        *
+        FROM
+        fcmain
+        where
+        main_thumbnail_top_third is not null
+        ORDER BY
+        main_date DESC
+        LIMIT
+        1;
+    </select>
+
+    <select id="getRecent_Thumbnail_top_fourth" resultType="com.footballCheck.domain.main.MainDTO">
+        SELECT
+        *
+        FROM
+        fcmain
+        where
+        main_thumbnail_top_fourth is not null
+        ORDER BY
+        main_date DESC
+        LIMIT
+        1;
+    </select>
+
+    <select id="getRecent_Thumbnail_bottom_first" resultType="com.footballCheck.domain.main.MainDTO">
+        SELECT
+        *
+        FROM
+        fcmain
+        where
+        main_thumbnail_bottom_first is not null
+        ORDER BY
+        main_date DESC
+        LIMIT
+        1;
+    </select>
+
+    <select id="getRecent_Thumbnail_bottom_second" resultType="com.footballCheck.domain.main.MainDTO">
+        SELECT
+        *
+        FROM
+        fcmain
+        where
+        main_thumbnail_bottom_second is not null
+        ORDER BY
+        main_date DESC
+        LIMIT
+        1;
+    </select>
+
+    <select id="getRecent_Thumbnail_bottom_third" resultType="com.footballCheck.domain.main.MainDTO">
+        SELECT
+        *
+        FROM
+        fcmain
+        where
+        main_thumbnail_bottom_third is not null
+        ORDER BY
+        main_date DESC
+        LIMIT
+        1;
+    </select>
+
+    <select id="getRecent_Thumbnail_bottom_fourth" resultType="com.footballCheck.domain.main.MainDTO">
+        SELECT
+        *
+        FROM
+        fcmain
+        where
+        main_thumbnail_bottom_fourth is not null
+        ORDER BY
+        main_date DESC
+        LIMIT
+        1;
     </select>
 
     <update id="updateViewCnt">
@@ -231,7 +322,15 @@
         SET
             main_category   = IFNULL(   #{main_category},       main_category       ),
             main_title   = IFNULL(   #{main_title},       main_title       ),
-            main_content   = IFNULL(   #{main_content},       main_content       )
+            main_content   = IFNULL(   #{main_content},       main_content       ),
+            main_thumbnail_top_first = IFNULL(   #{main_thumbnail_top_first},       main_thumbnail_top_first       ),
+            main_thumbnail_top_second = IFNULL(   #{main_thumbnail_top_second},       main_thumbnail_top_second       ),
+            main_thumbnail_top_third = IFNULL(   #{main_thumbnail_top_third},       main_thumbnail_top_third       ),
+            main_thumbnail_top_fourth = IFNULL(   #{main_thumbnail_top_fourth},       main_thumbnail_top_fourth       ),
+            main_thumbnail_bottom_first = IFNULL(   #{main_thumbnail_bottom_first},       main_thumbnail_bottom_first       ),
+            main_thumbnail_bottom_second = IFNULL(   #{main_thumbnail_bottom_second},       main_thumbnail_bottom_second       ),
+            main_thumbnail_bottom_third = IFNULL(   #{main_thumbnail_bottom_third},       main_thumbnail_bottom_third       ),
+            main_thumbnail_bottom_fourth = IFNULL(   #{main_thumbnail_bottom_fourth},       main_thumbnail_bottom_fourth       )
         WHERE
             main_no = #{main_no}
     </update>

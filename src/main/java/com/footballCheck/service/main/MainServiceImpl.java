@@ -65,6 +65,41 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
+    public MainDTO getRecent_Thumbnail_top_second() {
+        return mainMapper.getRecent_Thumbnail_top_second();
+    }
+
+    @Override
+    public MainDTO getRecent_Thumbnail_top_third() {
+        return mainMapper.getRecent_Thumbnail_top_third();
+    }
+
+    @Override
+    public MainDTO getRecent_Thumbnail_top_fourth() {
+        return mainMapper.getRecent_Thumbnail_top_fourth();
+    }
+
+    @Override
+    public MainDTO getRecent_Thumbnail_bottom_first() {
+        return mainMapper.getRecent_Thumbnail_bottom_first();
+    }
+
+    @Override
+    public MainDTO getRecent_Thumbnail_bottom_second() {
+        return mainMapper.getRecent_Thumbnail_bottom_second();
+    }
+
+    @Override
+    public MainDTO getRecent_Thumbnail_bottom_third() {
+        return mainMapper.getRecent_Thumbnail_bottom_third();
+    }
+
+    @Override
+    public MainDTO getRecent_Thumbnail_bottom_fourth() {
+        return mainMapper.getRecent_Thumbnail_bottom_fourth();
+    }
+
+    @Override
     public void updateViewCnt(int main_no) {
         mainMapper.updateViewCnt(main_no);
     }
@@ -76,7 +111,8 @@ public class MainServiceImpl implements MainService {
 
     @Override
     public void delete(int main_no) {
-        String filePath = "C:\\Users\\choigy\\Desktop\\afterProject\\footballCheck\\src\\main\\resources\\static\\img\\upload\\";
+//        String filePath = "C:\\Users\\choigy\\Desktop\\afterProject\\footballCheck\\src\\main\\resources\\static\\img\\upload\\";
+        String filePath = "/home/hosting_users/leeniesta/tomcat/webapps/ROOT/WEB-INF/classes/static/img/upload";
         String[] fileName = new String[8];
 
         fileName[0] = mainMapper.getThumbnail_top_first(main_no);

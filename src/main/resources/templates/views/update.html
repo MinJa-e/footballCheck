@@ -19,7 +19,7 @@
 
         <div id="writeContainer">
 
-            <form th:action="@{'/api/main/'+${main.main_no}}" th:method="put">
+            <form th:action="@{'/api/main/'+${main.main_no}}" th:method="put" enctype="multipart/form-data">
 
             <div class="row">
                 <select name="main_category" id="main_category" class="col-auto p-0" aria-label="Default select example">
@@ -41,32 +41,53 @@
                             extraPlugins: 'autolink'
 	} );
                 </script>
-<!--        <script>-->
-<!--        ClassicEditor-->
-<!--            .create( document.querySelector( '#writeContent' ), {-->
-<!--                simpleUpload:-->
-<!--                {-->
-<!--                    uploadUrl: "/upload/image",-->
-<!--                    withCredentials: true,-->
-<!--                },-->
-<!--                language: 'ko' //언어설정-->
-<!--            })-->
-<!--                                .then( newEditor => {-->
-<!--                                        console.log( newEditor );-->
-<!--                                        editor = newEditor;-->
-<!--                                } )-->
-<!--                                .catch( error => {-->
-<!--                                        console.error( error );-->
-<!--                                } );-->
-<!--    </script>-->
 
-
-            <span>썸네일 이미지 : </span><input name="main_thumbnail" id="main_thumbnail" type="file">
-            <input type="hidden" name="main_writer" id="main_writer" value="">
-            <div class="row justify-content-between">
-                <span class="font-size-6 text-secondary col-auto p-0">* 수정 시 썸네일 이미지는 새로 업로드 해주셔야 합니다.(추후 편의성 업데이트 예정)</span>
-                <input type="submit" class="btn btn-sm btn-secondary col-auto" value="등록"/>
-            </div>
+                <div class="row justify-content-between margin-top-05">
+                    <div class="col-auto"><input type="checkbox" id="thumbnailCheck" onclick="check()">
+                        <span> 대표 이미지 등록</span></div>
+                        <script>
+                    function check() {
+                        if(document.getElementById('thumbnailCheck').checked == true){
+                            document.getElementById('thumbnailTopContainer').style.display="flex";
+                            document.getElementById('thumbnailBottomContainer').style.display="flex";
+                        }else if(document.getElementById('thumbnailCheck').checked == false){
+                            document.getElementById('thumbnailTopContainer').style.display="none";
+                            document.getElementById('thumbnailBottomContainer').style.display="none";
+                        }
+                    }
+                </script>
+                    <input type="submit" class="btn btn-sm btn-secondary col-auto" value="등록"/>
+                </div>
+                <div id="thumbnailWarning" class="font-size-6 text-secondary">* 업로드 하지 않으셔도, 기존의 이미지는 유지 됩니다.</div>
+                <div class="row margin-top-10" id="thumbnailTopContainer" style="display:none;">
+                    <div class="col-3" id="top_first_container">
+                        <span>상단1 : </span><input name="top_first" id="top_first" type="file">
+                    </div>
+                    <div class="col-3" id="top_second_container">
+                        <span>상단2 : </span><input name="top_second" id="top_second" type="file">
+                    </div>
+                    <div class="col-3" id="top_third_container">
+                        <span>상단3 : </span><input name="top_third" id="top_third" type="file">
+                    </div>
+                    <div class="col-3" id="top_fourth_container">
+                        <span>상단4 : </span><input name="top_fourth" id="top_fourth" type="file">
+                    </div>
+                </div>
+                <div class="row margin-top-10 padding-bottom-25" id="thumbnailBottomContainer" style="display:none;">
+                    <div class="col-3" id="bottom_first_container">
+                        <span>하단1 : </span><input name="bottom_first" id="bottom_first" type="file">
+                    </div>
+                    <div class="col-3" id="bottom_second_container">
+                        <span>하단2 : </span><input name="bottom_second" id="bottom_second" type="file">
+                    </div>
+                    <div class="col-3" id="bottom_third_container">
+                        <span>하단3 : </span><input name="bottom_third" id="bottom_third" type="file">
+                    </div>
+                    <div class="col-3" id="bottom_fourth_container">
+                        <span>하단4 : </span><input name="bottom_fourth" id="bottom_fourth" type="file">
+                    </div>
+                </div>
+                <input type="hidden" name="main_writer" id="main_writer" value="작성자">
 
         </form>
 

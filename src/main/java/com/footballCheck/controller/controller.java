@@ -50,9 +50,23 @@ public class controller {
             model.addAttribute("deleteCategoryUri", baseUri);
         }
 
-        MainDTO thumbnail = mainService.getRecent_Thumbnail_top_first();
+        MainDTO thumbnail_1 = mainService.getRecent_Thumbnail_top_first();
+        MainDTO thumbnail_2 = mainService.getRecent_Thumbnail_top_second();
+        MainDTO thumbnail_3 = mainService.getRecent_Thumbnail_top_third();
+        MainDTO thumbnail_4 = mainService.getRecent_Thumbnail_top_fourth();
+        MainDTO thumbnail_5 = mainService.getRecent_Thumbnail_bottom_first();
+        MainDTO thumbnail_6 = mainService.getRecent_Thumbnail_bottom_second();
+        MainDTO thumbnail_7 = mainService.getRecent_Thumbnail_bottom_third();
+        MainDTO thumbnail_8 = mainService.getRecent_Thumbnail_bottom_fourth();
 
-        model.addAttribute("thumbnail", thumbnail);
+        model.addAttribute("thumbnail_1", thumbnail_1);
+        model.addAttribute("thumbnail_2", thumbnail_2);
+        model.addAttribute("thumbnail_3", thumbnail_3);
+        model.addAttribute("thumbnail_4", thumbnail_4);
+        model.addAttribute("thumbnail_5", thumbnail_5);
+        model.addAttribute("thumbnail_6", thumbnail_6);
+        model.addAttribute("thumbnail_7", thumbnail_7);
+        model.addAttribute("thumbnail_8", thumbnail_8);
         model.addAttribute("list", list);
         model.addAttribute("pageMaker", pageMaker);
         model.addAttribute("category", category);

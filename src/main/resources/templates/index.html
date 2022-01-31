@@ -10,29 +10,29 @@
 
         <div id="mainImageContainer" class="row d-flex gy-4 justify-content-between">
 
-            <a class="dummyImage" th:href="@{/contents(main_no=${thumbnail.main_no})}">
-                <img th:src="@{/img/upload/}+${thumbnail.main_thumbnail_top_first}">
+            <a class="dummyImage" th:href="@{/contents(main_no=${thumbnail_1.main_no})}">
+                <img th:src="@{/img/upload/}+${thumbnail_1.main_thumbnail_top_first}">
             </a>
-            <a class="dummyImage" href="#">
-                <img th:src="@{/img/sourceSchedule.jpg}">
+            <a class="dummyImage" th:href="@{/contents(main_no=${thumbnail_2.main_no})}">
+                <img th:src="@{/img/upload/}+${thumbnail_2.main_thumbnail_top_second}">
             </a>
-            <a class="dummyImage" href="#">
-                <img th:src="@{/img/sourceNight.jpg}">
+            <a class="dummyImage" th:href="@{/contents(main_no=${thumbnail_3.main_no})}">
+                <img th:src="@{/img/upload/}+${thumbnail_3.main_thumbnail_top_third}">
             </a>
-            <a class="dummyImage" href="#">
-                <img th:src="@{/img/sourceToday.jpg}">
+            <a class="dummyImage" th:href="@{/contents(main_no=${thumbnail_4.main_no})}">
+                <img th:src="@{/img/upload/}+${thumbnail_4.main_thumbnail_top_fourth}">
             </a>
-            <a class="dummyImage" href="#">
-                <img th:src="@{/img/sourceResultOne.jpg}">
+            <a class="dummyImage" th:href="@{/contents(main_no=${thumbnail_5.main_no})}">
+                <img th:src="@{/img/upload/}+${thumbnail_5.main_thumbnail_bottom_first}">
             </a>
-            <a class="dummyImage" href="#">
-                <img th:src="@{/img/sourceResultTwo.jpg}">
+            <a class="dummyImage" th:href="@{/contents(main_no=${thumbnail_6.main_no})}">
+                <img th:src="@{/img/upload/}+${thumbnail_6.main_thumbnail_bottom_second}">
             </a>
-            <a class="dummyImage" href="#">
-                <img th:src="@{/img/sourceResultThree.jpg}">
+            <a class="dummyImage" th:href="@{/contents(main_no=${thumbnail_7.main_no})}">
+                <img th:src="@{/img/upload/}+${thumbnail_7.main_thumbnail_bottom_third}">
             </a>
-            <a class="dummyImage" href="#">
-                <img th:src="@{/img/sourceIssue.jpg}">
+            <a class="dummyImage" th:href="@{/contents(main_no=${thumbnail_8.main_no})}">
+                <img th:src="@{/img/upload/}+${thumbnail_8.main_thumbnail_bottom_fourth}">
             </a>
 
         </div><!--이미지 끝-->
@@ -122,7 +122,7 @@
             </form>
 
         <a class="btn btn-secondary col-auto btn-sm me-1" href="/write" role="button">글쓰기</a>
-        <button type="button" class="btn btn-secondary btn-sm col-auto">인기글</button>
+<!--        <button type="button" class="btn btn-secondary btn-sm col-auto">인기글</button>-->
             
         </div>
 
