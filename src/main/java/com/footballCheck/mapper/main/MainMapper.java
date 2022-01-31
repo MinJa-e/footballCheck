@@ -28,6 +28,17 @@ public interface MainMapper {
 
     int getLast();
 
+    String getThumbnail_top_first(int main_no);
+    String getThumbnail_top_second(int main_no);
+    String getThumbnail_top_third(int main_no);
+    String getThumbnail_top_fourth(int main_no);
+    String getThumbnail_bottom_first(int main_no);
+    String getThumbnail_bottom_second(int main_no);
+    String getThumbnail_bottom_third(int main_no);
+    String getThumbnail_bottom_fourth(int main_no);
+
+    MainDTO getRecent_Thumbnail_top_first();
+
     void updateViewCnt(int main_no);
 
     void update(MainDTO MainDTO);

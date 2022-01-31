@@ -136,6 +136,91 @@
             1
     </select>
 
+    <select id="getThumbnail_top_first" parameterType="int" resultType="String">
+        SELECT
+            main_thumbnail_top_first
+        FROM
+            fcmain
+        where
+            main_no = #{main_no}
+    </select>
+
+    <select id="getThumbnail_top_second" parameterType="int" resultType="String">
+        SELECT
+            main_thumbnail_top_second
+        FROM
+            fcmain
+        where
+            main_no = #{main_no}
+    </select>
+
+    <select id="getThumbnail_top_third" parameterType="int" resultType="String">
+        SELECT
+            main_thumbnail_top_third
+        FROM
+            fcmain
+        where
+            main_no = #{main_no}
+    </select>
+
+    <select id="getThumbnail_top_fourth" parameterType="int" resultType="String">
+        SELECT
+            main_thumbnail_top_fourth
+        FROM
+            fcmain
+        where
+            main_no = #{main_no}
+    </select>
+
+    <select id="getThumbnail_bottom_first" parameterType="int" resultType="String">
+        SELECT
+            main_thumbnail_bottom_first
+        FROM
+            fcmain
+        where
+            main_no = #{main_no}
+    </select>
+
+    <select id="getThumbnail_bottom_second" parameterType="int" resultType="String">
+        SELECT
+            main_thumbnail_bottom_second
+        FROM
+            fcmain
+        where
+            main_no = #{main_no}
+    </select>
+
+    <select id="getThumbnail_bottom_third" parameterType="int" resultType="String">
+        SELECT
+            main_thumbnail_bottom_third
+        FROM
+            fcmain
+        where
+            main_no = #{main_no}
+    </select>
+
+    <select id="getThumbnail_bottom_fourth" parameterType="int" resultType="String">
+        SELECT
+            main_thumbnail_bottom_fourth
+        FROM
+            fcmain
+        where
+            main_no = #{main_no}
+    </select>
+
+    <select id="getRecent_Thumbnail_top_first" resultType="com.footballCheck.domain.main.MainDTO">
+        SELECT
+            main_thumbnail_top_first, main_no
+        FROM
+            fcmain
+        where
+            main_thumbnail_top_first is not null
+        ORDER BY
+            main_date DESC
+        LIMIT
+            1;
+    </select>
+
     <update id="updateViewCnt">
         update fcmain set main_view = main_view + 1 where main_no = #{main_no}
     </update>

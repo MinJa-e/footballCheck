@@ -10,8 +10,8 @@
 
         <div id="mainImageContainer" class="row d-flex gy-4 justify-content-between">
 
-            <a class="dummyImage" href="#">
-                <img th:src="@{/img/sourceNotice.jpg}">
+            <a class="dummyImage" th:href="@{/contents(main_no=${thumbnail.main_no})}">
+                <img th:src="@{/img/upload/}+${thumbnail.main_thumbnail_top_first}">
             </a>
             <a class="dummyImage" href="#">
                 <img th:src="@{/img/sourceSchedule.jpg}">

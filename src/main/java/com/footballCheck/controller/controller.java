@@ -50,7 +50,9 @@ public class controller {
             model.addAttribute("deleteCategoryUri", baseUri);
         }
 
+        MainDTO thumbnail = mainService.getRecent_Thumbnail_top_first();
 
+        model.addAttribute("thumbnail", thumbnail);
         model.addAttribute("list", list);
         model.addAttribute("pageMaker", pageMaker);
         model.addAttribute("category", category);

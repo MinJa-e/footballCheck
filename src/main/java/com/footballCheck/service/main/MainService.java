@@ -25,6 +25,8 @@ public interface MainService {
 
     int getLast();
 
+    MainDTO getRecent_Thumbnail_top_first();
+
     void updateViewCnt(int main_no);
 
     void update(MainDTO mainDTO);
