@@ -3,8 +3,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.footballCheck.mapper.main.MainMapper">
     <insert id="write" useGeneratedKeys="true" keyProperty="main_no">
-        INSERT INTO fcmain (main_category,main_title,main_content,main_thumbnail,main_writer,main_date)
-        VALUES ( #{main_category}, #{main_title}, #{main_content}, #{main_thumbnail}, #{main_writer}, now() )
+        INSERT INTO fcmain (main_category,main_title,main_content,main_writer,main_date
+        , main_thumbnail_top_first, main_thumbnail_top_second, main_thumbnail_top_third, main_thumbnail_top_fourth
+        , main_thumbnail_bottom_first, main_thumbnail_bottom_second, main_thumbnail_bottom_third, main_thumbnail_bottom_fourth
+        )
+        VALUES ( #{main_category}, #{main_title}, #{main_content}, #{main_writer}, now()
+        , #{main_thumbnail_top_first}, #{main_thumbnail_top_second}, #{main_thumbnail_top_third}, #{main_thumbnail_top_fourth}
+        , #{main_thumbnail_bottom_first}, #{main_thumbnail_bottom_second}, #{main_thumbnail_bottom_third}, #{main_thumbnail_bottom_fourth}
+        )
     </insert>
 
     <select id="getList" parameterType="hashmap" resultType="com.footballCheck.domain.main.MainDTO">
@@ -140,9 +146,7 @@
         SET
             main_category   = IFNULL(   #{main_category},       main_category       ),
             main_title   = IFNULL(   #{main_title},       main_title       ),
-            main_content   = IFNULL(   #{main_content},       main_content       ),
-            main_thumbnail   = IFNULL(   #{main_thumbnail},       main_thumbnail       ),
-            main_position   = IFNULL(   #{main_position},       main_position       )
+            main_content   = IFNULL(   #{main_content},       main_content       )
         WHERE
             main_no = #{main_no}
     </update>

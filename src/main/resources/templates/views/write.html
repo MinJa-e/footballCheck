@@ -18,7 +18,7 @@
 
         <div id="writeContainer">
 
-            <form action="/api/main" method="post">
+            <form action="/api/main" method="post" enctype="multipart/form-data">
 
             <div class="row">
                 <select name="main_category" id="main_category" class="col-auto p-0" aria-label="Default select example">
@@ -42,43 +42,51 @@
                         } );
                 </script>
 
-            <div class="row">
-                <span class="col-auto">메인 이미지 등록 : </span>
-                <select name="main_position" id="main_position" class="col-auto p-0" onchange="mainPositionChange()" aria-label="Default select example">
-                    <option value="0" selected>등록X</option>
-                    <option value="1">상단1</option>
-                    <option value="2">상단2</option>
-                    <option value="3">상단3</option>
-                    <option value="4">상단4</option>
-                    <option value="5">하단1</option>
-                    <option value="6">하단2</option>
-                    <option value="7">하단3</option>
-                    <option value="8">하단4</option>
-                </select>
-            </div>
-                <script>
-                    function mainPositionChange(){
-                        var writeThumbnailContainer = document.getElementById("writeThumbnailContainer"); // select element에서 선택된 option의 value가 저장된다. 
-                        var selectMainPosition = document.getElementById("main_position"); // select element에서 선택된 option의 value가 저장된다. 
-                        var selectMainPositionValue = selectMainPosition.options[selectMainPosition.selectedIndex].value; // select element에서 선택된 option의 text가 저장된다. 
-                        var selectMainPositionText = selectMainPosition.options[selectMainPosition.selectedIndex].text;
-
-                        if(selectMainPositionValue == 0){
-                            writeThumbnailContainer.style.display="none";
-                        }else if(selectMainPositionValue != 0){
-                            writeThumbnailContainer.style.display="block";
+                <div class="row justify-content-between">
+                    <div class="col-auto"><input type="checkbox" id="thumbnailCheck" onclick="check()">
+                        <script>
+                    function check() {
+                        if(document.getElementById('thumbnailCheck').checked == true){
+                            document.getElementById('thumbnailTopContainer').style.display="flex";
+                            document.getElementById('thumbnailBottomContainer').style.display="flex";
+                        }else if(document.getElementById('thumbnailCheck').checked == false){
+                            document.getElementById('thumbnailTopContainer').style.display="none";
+                            document.getElementById('thumbnailBottomContainer').style.display="none";
                         }
-
                     }
                 </script>
-            <div id="writeThumbnailContainer" style="display:none;">
-                <span>썸네일 이미지 : </span><input name="main_thumbnail" id="main_thumbnail" type="file">
-            </div>
-            <input type="hidden" name="main_writer" id="main_writer" value="">
-            <div class="row justify-content-between">
-                <span class="font-size-6 text-secondary col-auto p-0">* 수정 시 썸네일 이미지는 새로 업로드 해주셔야 합니다.(추후 편의성 업데이트 예정)</span>
-                <input type="submit" class="btn btn-sm btn-secondary col-auto" value="등록"/>
-            </div>
+                        <span> 대표 이미지 등록 여부</span></div>
+                    <input type="submit" class="btn btn-sm btn-secondary col-auto" value="등록"/>
+                </div>
+                <div class="row" id="thumbnailTopContainer" style="display:none;">
+                    <div class="col-3" id="top_first_container">
+                        <span>상단1 : </span><input name="top_first" id="top_first" type="file">
+                    </div>
+                    <div class="col-3" id="top_second_container">
+                        <span>상단2 : </span><input name="top_second" id="top_second" type="file">
+                    </div>
+                    <div class="col-3" id="top_third_container">
+                        <span>상단3 : </span><input name="top_third" id="top_third" type="file">
+                    </div>
+                    <div class="col-3" id="top_fourth_container">
+                        <span>상단4 : </span><input name="top_fourth" id="top_fourth" type="file">
+                    </div>
+                </div>
+                <div class="row" id="thumbnailBottomContainer" style="display:none;">
+                    <div class="col-3" id="bottom_first_container">
+                        <span>하단1 : </span><input name="bottom_first" id="bottom_first" type="file">
+                    </div>
+                    <div class="col-3" id="bottom_second_container">
+                        <span>하단2 : </span><input name="bottom_second" id="bottom_second" type="file">
+                    </div>
+                    <div class="col-3" id="bottom_third_container">
+                        <span>하단3 : </span><input name="bottom_third" id="bottom_third" type="file">
+                    </div>
+                    <div class="col-3" id="bottom_fourth_container">
+                        <span>하단4 : </span><input name="bottom_fourth" id="bottom_fourth" type="file">
+                    </div>
+                </div>
+            <input type="hidden" name="main_writer" id="main_writer" value="작성자">
 
         </form>
 
