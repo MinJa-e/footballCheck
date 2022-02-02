@@ -88,7 +88,7 @@ public class ApiMainController {
         }
 
         mainService.write(mainDTO);
-        return "redirect:/";
+        return "redirect:/footballCheck/";
     }
 
 //    @GetMapping("/{talkNum}")
@@ -169,19 +169,19 @@ public class ApiMainController {
 
         mainDTO.setMain_no(main_no);
         mainService.update(mainDTO);
-        return "redirect:/";
+        return "redirect:/footballCheck/";
     }
 
     @DeleteMapping("/{main_no}")
     public String mainDelete(@PathVariable Integer main_no) {
         mainService.delete(main_no);
-        return "redirect:/";
+        return "redirect:/footballCheck/";
     }
 
     @GetMapping("/getPrev/{main_no}")//이전글 로직
     public String getPrev(@PathVariable Integer main_no) {
         if(mainService.getPrev(main_no) != 0) {
-            return "redirect:/contents?main_no="+mainService.getPrev(main_no);
+            return "redirect:/footballCheck/contents?main_no="+mainService.getPrev(main_no);
         }else{
             return null;
         }
@@ -190,7 +190,7 @@ public class ApiMainController {
     @GetMapping("/getNext/{main_no}")//이전글 로직
     public String getNext(@PathVariable Integer main_no) {
         if(mainService.getNext(main_no) != 0) {
-            return "redirect:/contents?main_no="+mainService.getNext(main_no);
+            return "redirect:/footballCheck/contents?main_no="+mainService.getNext(main_no);
         }else{
             return null;
         }
