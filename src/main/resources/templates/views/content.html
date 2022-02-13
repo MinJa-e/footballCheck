@@ -39,7 +39,7 @@
 
         <div class="row justify-content-between padding-top-05 padding-bottom-05">
             <div class="col-auto">
-                <a class="btn btn-secondary col-auto btn-sm me-1" th:href="@{/footballCheck/update(main_no=${main.main_no})}" role="button">글 수정</a>
+                <a class="btn btn-secondary col-auto btn-sm me-1" th:href="@{/footballCom/update(main_no=${main.main_no})}" role="button">글 수정</a>
                 <button class="btn btn-secondary col-auto btn-sm me-1" onclick="mainContentDelete()" role="button">글 삭제</button>
                 <script>
                         function mainContentDelete() {
@@ -65,7 +65,7 @@
                                         })
                                         .then((data) => {
                                             console.log(data);
-                                            location.href="/footballCheck/";
+                                            location.href="/footballCom/";
                                         })
                                         .catch((error) => {
                                             console.log(error);
@@ -79,7 +79,7 @@
                 </script>
             </div>
             <div class="col-auto">
-                <a class="btn btn-secondary col-auto btn-sm me-1" href="/footballCheck/" role="button">목록으로</a>
+                <a class="btn btn-secondary col-auto btn-sm me-1" href="/footballCom/" role="button">목록으로</a>
                 <a th:if="${main.main_no != first}" class="btn btn-secondary col-auto btn-sm me-1" th:href="@{|/api/main/getPrev/${main.main_no}|}" role="button">이전 글</a>
                 <a th:if="${main.main_no != last}" class="btn btn-secondary col-auto btn-sm me-1" th:href="@{|/api/main/getNext/${main.main_no}|}" role="button">다음 글</a>
             </div>
