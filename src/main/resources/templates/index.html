@@ -93,7 +93,7 @@
                     <td th:if="${main.main_category} == '3'" th:text="경기결과">공지</td>
                     <td th:if="${main.main_category} == '4'" th:text="밤사이결과">공지</td>
                     <td th:if="${main.main_category} == '5'" th:text="이슈">공지</td>
-                    <td style="padding-left: 1.5rem;text-align:left;"><a th:text="${main.main_title}" th:href="@{/footballCom/contents(main_no=${main.main_no})}">축구체크 제목 테스트</a></td>
+                    <td style="padding-left: 1.5rem;text-align:left;"><a th:text="${main.main_title}" th:href="@{/contents(main_no=${main.main_no})}">축구체크 제목 테스트</a></td>
                     <td th:text="${main.main_writer}">이민재</td>
                     <td th:text="${#temporals.format(main.main_date, 'yyyy.MM.dd')}">2022-02-22</td>
 <!--                    <td th:text="${#temporals.format(main.date, 'yyyy-MM-dd HH:mm')}">2022-02-22</td>-->
@@ -131,7 +131,7 @@
                 <ul th:with="start = ${pageMaker.startPage}, end = ${pageMaker.endPage}" class="pagination pagination-sm justify-content-center">
                     <!--이전 페이지-->
                     <li th:if="${pageMaker.isPrev() == true}" class="page-item">
-                        <a class="page-link" th:href="@{/footballCom/?page={page}(page=${pageMaker.startPage-1 })}" aria-label="Previous">
+                        <a class="page-link" th:href="@{/?page={page}(page=${pageMaker.startPage-1 })}" aria-label="Previous">
                             <span aria-hidden="true">이전</span>
                         </a>
                     </li>
@@ -139,11 +139,11 @@
                     <li
                             th:each="pageNum : ${#numbers.sequence(start, end)}"
                             class="page-item" th:classappend="${pageNum == pageMaker.cri.page} ? 'active'">
-                        <a th:text="${pageNum}" class="page-link" th:href="@{/footballCom/?page={page} (page = ${pageNum})}">1</a>
+                        <a th:text="${pageNum}" class="page-link" th:href="@{/?page={page} (page = ${pageNum})}">1</a>
                     </li>
                     <!--다음 페이지>-->
                     <li th:if="${pageMaker.isNext() == true && pageMaker.endPage > 0}" class="page-item">
-                        <a class="page-link" th:href="@{/footballCom/?page={page}(page=${pageMaker.endPage+1 })}" aria-label="Next">
+                        <a class="page-link" th:href="@{/?page={page}(page=${pageMaker.endPage+1 })}" aria-label="Next">
                             <span aria-hidden="true">다음</span>
                         </a>
                     </li>
